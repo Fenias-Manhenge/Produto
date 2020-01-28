@@ -17,7 +17,7 @@ public class SistemaProduto {
     public void lerDados(){
         
         Scanner t=new Scanner(System.in);
-        int cod=0;
+        int cod;
         
         do{System.out.print("INTRODUZA CODIGO: ");
            cod=t.nextInt();
@@ -51,8 +51,8 @@ public class SistemaProduto {
         double soma=0,med=0;
         for(int i=0 ;i<size; i++)
             soma+=p[i].getpreco();
-            if(size>0)
-                med=soma/size;
+           if(size>0)
+             med=soma/size;
             return med;
     }
     public void visualiza(){
@@ -91,7 +91,27 @@ public class SistemaProduto {
             System.out.println("MENU DO SISTEMA ");
             System.out.println("1.LER DADOS ");
             System.out.println("2.IMPRIMIR DADOS");
-        }
-        
+            System.out.println("3.ORDENAR PRODUTOS");
+            System.out.println("4.IMPRIMIR O PRECO MEDIO DOS PRODUTOS");
+            System.out.println("5.VISUALIZAR DADOS DE UM PRODUTO");
+            System.out.println("6.ACTUALIAR DADOS DE UM PRODUTO");
+            System.out.println("7.EXIT");
+            System.out.println("OPCAO[1/2/3/4/5/6/7]");
+             
+             escolha=t.nextInt();
+             switch(escolha){
+                 case 1:lerDados();break;
+                 case 2:imprimeTodosDados();break;
+                 case 3:ordemCrescenteCodigo();break;
+                 case 4:System.out.print("Preco Medio: "+Pmedio());break;
+                 case 5:visualiza();break;
+                 case 6:actualiza();break;
+                 case 7:System.exit(0);
+             }
+        }while(true);
+    }
+    public static void main(String[] args) {
+        SistemaProduto k=new SistemaProduto();
+        k.menu();
     }
 }
